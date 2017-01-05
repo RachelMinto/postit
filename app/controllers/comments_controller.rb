@@ -1,4 +1,4 @@
-class CommentController < ActionController::Base
+class CommentController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
@@ -8,7 +8,7 @@ class CommentController < ActionController::Base
       flash[:notice] = "Your comment was added"
       redirect_to post_path(@post)
     else
-      render :template => "posts/new"
+      binding.pry
     end
   end
 end
