@@ -16,9 +16,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.creator = User.first
+    @post.category_ids = params[:category_ids]
 
     if @post.save
-      flash[:notice] = "Your post was created."
+      flash['notice'] = "Your post was created."
       redirect_to posts_path
     else
       render :new
@@ -29,7 +30,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      flash[:notice] = "Your post was updated."
+      flash['notice'] = "Your post was updated."
       redirect_to post_path(@post)
     else
       render :edit
