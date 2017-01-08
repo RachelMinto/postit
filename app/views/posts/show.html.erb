@@ -30,15 +30,7 @@
   <% end %>
 <% end %>
 
-  <% @post.comments.each do |comment| %>
-    <div class="row">
-      <div class="well span8">
-        <em><%= comment.body %></em>
-        <br>
-        <span class="quiet">by</span>
-        <a href=""><%= comment.creator.username %></a>
-        <small>at <%= format_date(comment.created_at) %></small>
-      </div>
-    </div>
-  <% end %>
+<% @post.comments.each do |comment| %>
+  <%= render 'comments/comment', comment: comment %>
+<% end %>
 
