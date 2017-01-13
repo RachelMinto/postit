@@ -23,8 +23,8 @@ module Sluggable
   end
 
   def to_slug(str)
-    str.gsub! /\s*[^A-Za-z0-9]\s*/, '-'
-    str.gsub! /-+/, "-"
+    str = str.gsub /\s*[^A-Za-z0-9]\s*/, '-'
+    str = str.gsub /-+/, "-"
     str
   end
 

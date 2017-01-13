@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   include Sluggable
-  
+
   has_many :posts
   has_many :comments
   has_many :votes
@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
   has_secure_password validations: false
 
   sluggable_column :username
+
+  def admin?
+    self.role == 'admin'
+  end
 end

@@ -1,4 +1,8 @@
-<%= render 'shared/content_title', title: 'Profile: ' + @user.username %>
+<p class="lead">
+  Profile: <%= @user.username %>
+  <hr/>
+</p>
+
 <% posts_url = "/users/#{@user.username}" %>
 <% comments_url = "/users/#{@user.username}?tab=comments" %>
 
@@ -6,7 +10,9 @@
   <dl class='dl-horizontal'>
   <dt>Username:</dt>
   <dd><%= @user.username %></dd>
-  </dl>
+  <dt>Time zone:</dt>
+  <dd><%= @user.time_zone %></dd>
+  </dl>  
 </div>
 
 <h5><%= @user.username %>'s Activity</h5>
